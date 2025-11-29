@@ -79,3 +79,15 @@ body h4 {
 }
 /* If this still fails, you may need to add !important to the font-size properties above, 
    but try without it first. */
+
+.budgetRangeInp{
+    background-color: red !important;
+    position: relative;
+    &:after{
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 50%;
+        background-color: red;
+    }
+}

@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from 'react';
-import { Camera, Upload, Palette, Cpu, Sparkles, CheckCircle, ArrowLeft } from 'lucide-react';
+import { Camera, Upload, Palette, Cpu, Sparkles, CheckCircle, ArrowLeft, Wallet } from 'lucide-react';
 import { ImageWithFallback } from "@/components/figma/ImageWithFallback";
 
 interface DemoPageProps {
@@ -14,13 +14,14 @@ export function DemoPage({ onBack }: DemoPageProps) {
     const [selectedStyle, setSelectedStyle] = useState<string | null>(null);
     const [uploadProgress, setUploadProgress] = useState(0);
     const [selectedFurniture, setSelectedFurniture] = useState<string[]>([]);
+    const [budget, setBudget] = useState(10000000); // Default 10M UZS
 
     const styles = [
         { id: 'modern', name: 'Modern', description: 'Clean lines, minimalist aesthetic' },
         { id: 'national', name: 'National', description: 'Traditional Uzbek patterns' },
         { id: 'hitech', name: 'Hi-Tech', description: 'Futuristic, smart home ready' },
     ];
-
+    
     const furnitureItems = [
         {
             id: '1',
@@ -60,7 +61,7 @@ export function DemoPage({ onBack }: DemoPageProps) {
 
     // Simulate AI processing
     useEffect(() => {
-        if (currentStep === 4 && isProcessing) {
+        if (currentStep === 5 && isProcessing) {
             const timers = furnitureItems.map((item, index) =>
                 setTimeout(() => {
                     setSelectedFurniture(prev => [...prev, item.id]);
@@ -69,7 +70,7 @@ export function DemoPage({ onBack }: DemoPageProps) {
 
             const finalTimer = setTimeout(() => {
                 setIsProcessing(false);
-                setCurrentStep(5);
+                setCurrentStep(6);
             }, 4000);
 
             return () => {
@@ -87,6 +88,15 @@ export function DemoPage({ onBack }: DemoPageProps) {
         }, 800);
     };
 
+    const handleBudgetContinue = () => {
+        setCurrentStep(5);
+        setIsProcessing(true);
+    };
+    
+    const formatCurrency = (value: number) => {
+        return new Intl.NumberFormat('uz-UZ').format(value);
+    };
+    
     const startDemo = () => {
         setCurrentStep(2);
         setUploadProgress(0);
@@ -117,8 +127,9 @@ export function DemoPage({ onBack }: DemoPageProps) {
                             { num: 1, label: 'Capture', icon: Camera },
                             { num: 2, label: 'Upload', icon: Upload },
                             { num: 3, label: 'Style', icon: Palette },
-                            { num: 4, label: 'AI Process', icon: Cpu },
-                            { num: 5, label: 'Result', icon: Sparkles },
+                            { num: 4, label: 'Budget', icon: Wallet },
+                            { num: 5, label: 'AI Process', icon: Cpu },
+                            { num: 6, label: 'Result', icon: Sparkles },
                         ].map((step, index) => {
                             const Icon = step.icon;
                             const isActive = currentStep >= step.num;
@@ -265,8 +276,86 @@ export function DemoPage({ onBack }: DemoPageProps) {
                         </div>
                     )}
 
-                    {/* Step 4: AI Processing */}
+                    {/* Step 4: Budget Selection */}
                     {currentStep === 4 && (
+                        <div className="text-center space-y-8 animate-fade-in">
+                            <div className="max-w-2xl mx-auto">
+                                <h2 className="text-[#264653] mb-4">Set Your Budget</h2>
+                                <p className="text-lg text-[#6B7280]">
+                                    Tell us your budget range and we'll find the perfect furniture within your means.
+                                </p>
+                            </div>
+
+                            <div className="max-w-3xl mx-auto bg-white rounded-[12px] p-12 shadow-[0px_6px_30px_rgba(0,0,0,0.08)]">
+                                <div className="mb-12">
+                                    <div className="flex items-center justify-center mb-8">
+                                        <div className="bg-[#2A9D8F]/10 p-6 rounded-full">
+                                            <Wallet className="w-12 h-12 text-[#2A9D8F]" />
+                                        </div>
+                                    </div>
+
+                                    {/* Budget Display */}
+                                    <div className="text-center mb-8">
+                                        <div className="text-5xl text-[#2A9D8F] mb-2">
+                                            {formatCurrency(budget)} UZS
+                                        </div>
+                                        <p className="text-sm text-[#6B7280]">Your renovation budget</p>
+                                    </div>
+
+                                    {/* Range Slider */}
+                                    <div className="space-y-4">
+                                        <input
+                                            type="range"
+                                            min="3000000"
+                                            max="30000000"
+                                            step="500000"
+                                            value={budget}
+                                            onChange={e => setBudget(Number(e.target.value))}
+                                            className="w-full h-3 bg-[#F8F9FA] rounded-full cursor-pointer slider-thumb"
+                                        />
+
+                                        {/* Range Labels */}
+                                        <div className="flex justify-between text-sm text-[#6B7280]">
+                                            <span>3M UZS</span>
+                                            <span>30M UZS</span>
+                                        </div>
+                                    </div>
+
+                                    {/* Budget Presets */}
+                                    <div className="grid grid-cols-3 gap-4 mt-8">
+                                        {[
+                                            { label: 'Budget', value: 5000000 },
+                                            { label: 'Standard', value: 10000000 },
+                                            { label: 'Premium', value: 20000000 },
+                                        ].map((preset) => (
+                                            <button
+                                                key={preset.label}
+                                                onClick={() => setBudget(preset.value)}
+                                                className={`py-3 px-4 rounded-[12px] border-2 transition-all duration-300 ${
+                                                    budget === preset.value
+                                                        ? 'border-[#2A9D8F] bg-[#2A9D8F]/10 text-[#2A9D8F]'
+                                                        : 'border-[#264653]/10 text-[#264653] hover:border-[#2A9D8F]/50'
+                                                }`}
+                                            >
+                                                <div className="text-sm mb-1">{preset.label}</div>
+                                                <div className="text-xs text-[#6B7280]">{formatCurrency(preset.value)}</div>
+                                            </button>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                <button
+                                    onClick={handleBudgetContinue}
+                                    className="w-full px-8 py-4 bg-[#2A9D8F] text-white rounded-full hover:bg-[#238276] transition-all duration-300 shadow-[0px_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0px_8px_40px_rgba(0,0,0,0.12)] hover:-translate-y-1"
+                                >
+                                    Continue with {formatCurrency(budget)} UZS
+                                </button>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* Step 5: AI Processing */}
+                    {currentStep === 5 && (
                         <div className="text-center space-y-8">
                             <div className="max-w-2xl mx-auto">
                                 <h2 className="text-[#264653] mb-4" style={{fontSize: '2.5rem', lineHeight: '1.2', fontWeight: '700'}}>AI Selecting Furniture</h2>
@@ -333,8 +422,8 @@ export function DemoPage({ onBack }: DemoPageProps) {
                         </div>
                     )}
 
-                    {/* Step 5: Final Result */}
-                    {currentStep === 5 && (
+                    {/* Step 6: Final Result */}
+                    {currentStep === 6 && (
                         <div className="text-center space-y-8 animate-fade-in">
                             <div className="max-w-2xl mx-auto">
                                 <h2 className="text-[#264653] mb-4" style={{fontSize: '2.5rem', lineHeight: '1.2', fontWeight: '700'}}>Your Dream Room is Ready!</h2>
@@ -387,6 +476,7 @@ export function DemoPage({ onBack }: DemoPageProps) {
                                             setSelectedStyle(null);
                                             setSelectedFurniture([]);
                                             setIsProcessing(false);
+                                            setBudget(10000000);
                                         }}
                                         className="w-full px-6 py-3 bg-white text-[#2A9D8F] border-2 border-[#2A9D8F] rounded-full hover:bg-[#2A9D8F] hover:text-white transition-all duration-300"
                                     >
