@@ -46,10 +46,6 @@ export function HowItWorks() {
                                 <h3 className="text-[#264653] mb-3" style={{fontSize: '1.75rem', lineHeight: '1.3', fontWeight: '600'}}>{step.title}</h3>
                                 <p className="text-[#6B7280] max-w-xs">{step.description}</p>
 
-                                {/* Arrow between steps */}
-                                {index < steps.length - 1 && (
-                                    <ArrowRight className="hidden md:block absolute right-0 top-10 w-8 h-8 text-[#2A9D8F] opacity-30" style={{ transform: 'translateX(50%)' }} />
-                                )}
                             </div>
                         );
                     })}

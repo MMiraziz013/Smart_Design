@@ -4,21 +4,24 @@ export function ProblemSection() {
     const problems = [
         {
             icon: Home,
-            title: 'The Void',
-            subtitle: 'Empty Walls',
-            description: '100,000+ apartments delivered as concrete shells annually.',
-        },
-        {
-            icon: DollarSign,
-            title: 'The Cost',
-            subtitle: 'Design is Expensive',
-            description: 'Professional sketches cost $1,500+. Ours is free.',
+            title: 'The "White Box" Trap',
+            subtitle: 'The Dream vs. The Concrete Reality',
+            // Directly addresses the "White Box" issue
+            description: 'New high-rise apartments are delivered as empty concrete shells, leaving 100,000+ homeowners to start renovation from zero.',
         },
         {
             icon: MapPin,
-            title: 'The Hunt',
-            subtitle: 'Fragmented Market',
-            description: 'Stop running between 10 different bazaars. Find everything here.',
+            title: 'The Visualization Gap',
+            subtitle: 'Pinterest to the Bazaar',
+            // Addresses the fragmented market and visualization mismatch
+            description: 'Inspiration (Pinterest/Instagram) clashes with reality. You can’t find the right furniture locally, leading to the "Cost of Guessing".',
+        },
+        {
+            icon: DollarSign,
+            title: 'The Cost of Guessing',
+            subtitle: 'Millions Wasted',
+            // Addresses the expense and the purchasing errors
+            description: 'Professional designers charge $1,500+ for drawings. Without a plan, homeowners spend millions of Soums on errors (too big, clashing colors, returns).',
         },
     ];
 
@@ -27,7 +30,8 @@ export function ProblemSection() {
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-16">
                     <h2 className="text-[#264653] mb-4" style={{fontSize: '2.5rem', lineHeight: '1.2', fontWeight: '700'}}>
-                        The Problem We're Solving</h2>
+                        The Problem We are Solving
+                    </h2>
                     <p className="text-lg text-[#6B7280] max-w-2xl mx-auto">
                         Moving into a new apartment in Uzbekistan shouldn't feel like starting from zero.
                     </p>

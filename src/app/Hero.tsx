@@ -20,10 +20,10 @@ export function Hero({ onTryDemo }: HeroProps) {
     const [hoveredTag, setHoveredTag] = useState<string | null>(null);
 
     const shoppingTags: ShoppingTag[] = [
-        { id: '1', name: 'Modern Sofa', price: '4,500,000 UZS', x: 35, y: 60 },
-        { id: '2', name: 'Coffee Table', price: '1,200,000 UZS', x: 50, y: 70 },
-        { id: '3', name: 'Floor Lamp', price: '850,000 UZS', x: 70, y: 40 },
-        { id: '4', name: 'Wall Shelf', price: '650,000 UZS', x: 25, y: 30 },
+        { id: '1', name: 'CALMA bed', price: '13,233,000 UZS', x: 35, y: 60 },
+        // { id: '2', name: 'Coffee Table', price: '1,200,000 UZS', x: 50, y: 70 },
+        { id: '3', name: 'Bedside table CALMA', price: '2,223,000 UZS', x: 78, y: 60},
+        { id: '4', name: 'Hanging dressing table CALMA', price: '2, 477,000 UZS', x: 20, y: 52},
     ];
 
     const handleMouseDown = () => setIsDragging(true);
@@ -71,7 +71,7 @@ export function Hero({ onTryDemo }: HeroProps) {
                             {/* Before Image (Empty Room) */}
                             <div className="absolute inset-0">
                                 <ImageWithFallback
-                                    src="https://images.unsplash.com/photo-1627306052213-164736646fe5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbXB0eSUyMGNvbmNyZXRlJTIwcm9vbSUyMHdoaXRlJTIwYm94fGVufDF8fHx8MTc2NDMzODk2M3ww&ixlib=rb-4.1.0&q=80&w=1080"
+                                    src="/empty-room.jpg"
                                     alt="Empty concrete room"
                                     className="w-full h-full object-cover"
                                 />
@@ -86,7 +86,7 @@ export function Hero({ onTryDemo }: HeroProps) {
                                 style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
                             >
                                 <ImageWithFallback
-                                    src="https://images.unsplash.com/photo-1565058650109-849d383455ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBmdXJuaXNoZWQlMjBsaXZpbmclMjByb29tfGVufDF8fHx8MTc2NDMyNDQ4NXww&ixlib=rb-4.1.0&q=80&w=1080"
+                                    src="/filled-room.png"
                                     alt="Furnished modern room"
                                     className="w-full h-full object-cover"
                                 />

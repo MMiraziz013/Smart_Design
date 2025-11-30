@@ -3,9 +3,21 @@ import { ImageWithFallback } from "@/components/figma/ImageWithFallback";
 
 export function TechnicalSection() {
     const techStack = [
-        { name: 'Java Spring Boot', role: 'Core Backend' },
-        { name: 'Python FastAPI', role: 'AI Engine' },
-        { name: '.NET Blazor', role: 'Frontend' },
+        {
+            name: 'Java Spring Boot',
+            role: 'Core Backend',
+            description: 'Used for building a robust and scalable microservice architecture, managing business logic, user authentication, and secure data handling.'
+        },
+        {
+            name: 'Python FastAPI',
+            role: 'AI Engine',
+            description: 'Selected for its high performance and asynchronous capabilities, providing a fast and efficient endpoint to expose the Multimodal RAG and Vector Search models.'
+        },
+        {
+            name: 'Typescript/React/Next.js',
+            role: 'Frontend',
+            description: 'Leveraged for modern, type-safe development to create a fast, server-rendered, and highly interactive user experience (UI).'
+        },
     ];
 
     return (
@@ -29,7 +41,7 @@ export function TechnicalSection() {
 
                 {/* Glass morphism card */}
                 <div className="bg-white/70 backdrop-blur-xl rounded-[12px] p-8 md:p-12 shadow-[0px_6px_30px_rgba(0,0,0,0.08)] border border-white/20">
-                    <div className="grid md:grid-cols-2 gap-8 items-center">
+                    <div className="grid md:grid-cols-2 gap-8 items-start">
                         {/* Left side - Tech highlights */}
                         <div className="space-y-6">
                             <div className="flex items-start gap-4">
@@ -39,7 +51,7 @@ export function TechnicalSection() {
                                 <div>
                                     <h4 className="text-[#264653] mb-2" style={{fontSize: '1.25rem', lineHeight: '1.4', fontWeight: '600'}}>Multimodal RAG</h4>
                                     <p className="text-[#6B7280]">
-                                        Retrieval-Augmented Generation for intelligent furniture matching.
+                                        Retrieval-Augmented Generation for intelligent furniture matching (using image, text, and room dimensions).
                                     </p>
                                 </div>
                             </div>
@@ -51,7 +63,7 @@ export function TechnicalSection() {
                                 <div>
                                     <h4 className="text-[#264653] mb-2" style={{fontSize: '1.25rem', lineHeight: '1.4', fontWeight: '600'}}>Vector Search</h4>
                                     <p className="text-[#6B7280]">
-                                        Semantic search across thousands of real furniture items.
+                                        Semantic search across thousands of real furniture items, ensuring highly relevant, budget-aligned recommendations.
                                     </p>
                                 </div>
                             </div>
@@ -63,25 +75,28 @@ export function TechnicalSection() {
                                 <div>
                                     <h4 className="text-[#264653] mb-2" style={{fontSize: '1.25rem', lineHeight: '1.4', fontWeight: '600'}}>Microservices</h4>
                                     <p className="text-[#6B7280]">
-                                        Scalable architecture for handling thousands of requests.
+                                        Scalable architecture that separates the AI engine (Python) from the core business logic (Java), allowing independent scaling and robust deployment.
                                     </p>
                                 </div>
                             </div>
                         </div>
 
-                        {/* Right side - Tech stack */}
+                        {/* Right side - Tech stack with descriptions */}
                         <div className="space-y-4">
-                            <h3 className="text-[#264653] mb-6" style={{fontSize: '1.75rem', lineHeight: '1.3', fontWeight: '600'}}>Tech Stack</h3>
-                            {techStack.map((tech, index) => (
+                            <h3 className="text-[#264653] mb-6" style={{fontSize: '1.75rem', lineHeight: '1.3', fontWeight: '600'}}>Core Tech Stack</h3>
+                            {techStack.map((tech) => (
                                 <div
-                                    key={index}
+                                    key={tech.name}
                                     className="bg-white rounded-[12px] p-4 shadow-[0px_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0px_8px_40px_rgba(0,0,0,0.12)] transition-all duration-300 hover:-translate-y-1"
                                 >
-                                    <div className="flex items-center justify-between">
-                                        <span className="text-[#264653]">{tech.name}</span>
-                                        <span className="text-sm text-[#2A9D8F] bg-[#2A9D8F]/10 px-3 py-1 rounded-full">
-                      {tech.role}
-                    </span>
+                                    <div className="flex flex-col">
+                                        <div className="flex items-center justify-between mb-1">
+                                            <span className="text-[#264653] font-semibold">{tech.name}</span>
+                                            <span className="text-xs font-medium text-[#2A9D8F] bg-[#2A9D8F]/10 px-2 py-0.5 rounded-full">
+                                                {tech.role}
+                                            </span>
+                                        </div>
+                                        <p className="text-sm text-[#6B7280] mt-1">{tech.description}</p>
                                     </div>
                                 </div>
                             ))}
