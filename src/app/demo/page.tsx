@@ -139,7 +139,7 @@ export default function DemoPage() {
                     API Access Example
                 </h2>
                 <p className="text-lg text-[#6B7280] mb-4 text-center">
-                    Below is an example of the JSON structure used to interact with our **Python FastAPI AI Engine** for image-to-image design transformation.
+                    Below is an example of the JSON structure used to interact with our <strong>Python FastAPI AI Engine</strong> for image-to-image design transformation.
                 </p>
                 {/* 🛠️ FIX: Explicitly set grid-cols-1 for mobile, and increase gap only on medium screens */}
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
