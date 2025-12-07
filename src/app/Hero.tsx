@@ -71,7 +71,7 @@ export function Hero({ onTryDemo }: HeroProps) {
                             href="/demo"
                             className="inline-block px-8 py-4 bg-[#2A9D8F] text-white rounded-full hover:bg-[#238276] transition-all duration-300 shadow-[0px_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0px_8px_40px_rgba(0,0,0,0.12)] hover:-translate-y-1"
                         >
-                            Try Demo Now
+                            View Demo Now
                         </Link>
                     </div>
 
