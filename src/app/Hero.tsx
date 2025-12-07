@@ -43,15 +43,15 @@ export function Hero({ onTryDemo }: HeroProps) {
             <div className="max-w-7xl w-full">
 
                 {/* 👈 NEW: Button to trigger the old state-based DemoPage view */}
-                <div className="flex justify-end mb-6">
-                    <button
-                        onClick={onTryDemo} // 👈 Calls the state-switching function passed from App.tsx
-                        className="flex items-center gap-2 px-4 py-2 text-sm text-[#264653] 
-                                   border border-[#264653]/10 rounded-full hover:bg-[#F8F9FA] transition-colors"
-                    >
-                        Go to Interactive Demo
-                    </button>
-                </div>
+                {/*<div className="flex justify-end mb-6">*/}
+                {/*    <button*/}
+                {/*        onClick={onTryDemo} // 👈 Calls the state-switching function passed from App.tsx*/}
+                {/*        className="flex items-center gap-2 px-4 py-2 text-sm text-[#264653] */}
+                {/*                   border border-[#264653]/10 rounded-full hover:bg-[#F8F9FA] transition-colors"*/}
+                {/*    >*/}
+                {/*        Go to Interactive Demo*/}
+                {/*    </button>*/}
+                {/*</div>*/}
                 {/* END NEW BUTTON */}
 
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
