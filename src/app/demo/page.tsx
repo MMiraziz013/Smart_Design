@@ -133,6 +133,7 @@ export default function DemoPage() {
             </div>
 
             {/* --- NEW: API Access Example --- */}
+            {/* --- NEW: API Access Example --- */}
             <div className="max-w-6xl mx-auto mt-16 pb-12">
                 <h2 className="text-3xl font-bold text-[#264653] mb-6 text-center">
                     API Access Example
@@ -140,21 +141,24 @@ export default function DemoPage() {
                 <p className="text-lg text-[#6B7280] mb-4 text-center">
                     Below is an example of the JSON structure used to interact with our **Python FastAPI AI Engine** for image-to-image design transformation.
                 </p>
-                <div className="grid md:grid-cols-2 gap-8">
+                {/* 🛠️ FIX: Explicitly set grid-cols-1 for mobile, and increase gap only on medium screens */}
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
                     {/* API Request */}
                     <div className="bg-gray-800 p-6 rounded-xl shadow-lg">
                         <h3 className="text-xl font-semibold text-[#2A9D8F] mb-3 border-b border-[#2A9D8F]/50 pb-2">REQUEST</h3>
+                        {/* The overflow-x-auto on the <pre> tag is crucial for long lines to scroll */}
                         <pre className="text-sm text-gray-200 overflow-x-auto">
-                            <code>{apiRequest}</code>
-                        </pre>
+                <code>{apiRequest}</code>
+            </pre>
                     </div>
 
                     {/* API Response */}
                     <div className="bg-gray-800 p-6 rounded-xl shadow-lg">
                         <h3 className="text-xl font-semibold text-[#2A9D8F] mb-3 border-b border-[#2A9D8F]/50 pb-2">RESPONSE</h3>
+                        {/* The overflow-x-auto on the <pre> tag is crucial for long lines to scroll */}
                         <pre className="text-sm text-gray-200 overflow-x-auto">
-                            <code>{apiResponse}</code>
-                        </pre>
+                <code>{apiResponse}</code>
+            </pre>
                     </div>
                 </div>
             </div>
