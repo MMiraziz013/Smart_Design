@@ -1,56 +1,120 @@
 import React from 'react';
-// Note: AlignCenter and ALIGN_OPTIONS imports are not used in this component's JSX, 
-// so they are not necessary unless used elsewhere in your environment.
+// We'll use the Link component later if needed, but for now, we'll keep the imports minimal.
 
 /**
- * Page component that handles the /demo route.
+ * Page component that handles the /demo route for the hackathon submission.
  */
 export default function DemoPage() {
+    // --- Configuration Constants ---
+    // 1. Placeholder for your actual YouTube embed ID
+    const YOUTUBE_VIDEO_ID = "2Uxhw-aNW6s"; // 👈 REPLACE with your actual YouTube video ID
+
+    // 2. Prototype Link (already provided)
+    const PROTOTYPE_URL = "https://prot.eminence.uz/";
+
+    // 3. Project Information (for the description)
+    const techStack = [
+        'Java Spring Boot (Core Backend)',
+        'Python FastAPI (AI Engine - Multimodal RAG & Vector Search)',
+        'Typescript/React/Next.js (Frontend)',
+    ];
+
+    const roadmapStage = 'Prototype Phase - Demo Version';
+    const nextSteps = 'Integration with 5 Major Retailers (Dafna, AIKO, etc.) and focusing on AR Mobile App & Bank Installments (Q1 2026).';
+
     return (
         <div className="min-h-screen p-8 md:p-16 bg-gray-50">
-            {/* Header and Introduction */}
+
+            {/* Header */}
             <header className="max-w-7xl mx-auto mb-12">
-                {/* 1. Centered h1 element */}
-                <h1 className="text-4xl font-extrabold text-[#264653] mb-4 text-center" style={{ fontSize: '3.5rem', fontWeight: '700' }}>
-                    SmartDesign Team Presents
+                <h1 className="text-4xl font-extrabold text-[#264653] mb-4 text-center border-b pb-4" style={{ fontSize: '3.5rem', fontWeight: '700' }}>
+                    NaviAIgate Team Presents: SmartDesign AI
                 </h1>
                 <p className="text-xl text-[#6B7280] text-center">
-                    _______________________________________________
+                    Bridging the gap between the "White Box" and the dream home.
                 </p>
             </header>
 
-            {/* Placeholder for the Interactive 3D Room Embed */}
-            <div className="w-full max-w-6xl h-[70vh] mx-auto bg-white border border-gray-300 rounded-xl shadow-2xl flex items-center justify-center overflow-hidden">
-                {/* This is the area for your Spline embed */}
-                <p className="text-gray-400 text-lg font-medium p-4 text-center">
-                    [Interactive 3D Spline Embed Area]
-                    {/* 2. Added line break */}
-                    <br />
-                    <span className="text-gray-500 text-sm italic">
-                        (The 3D model will load here. Use click-and-drag to view the room.)
-                    </span>
-                </p>
+            {/* --- 1. Demo Video Embed --- */}
+            <h2 className="text-3xl font-bold text-[#264653] mb-6 text-center" style={{fontSize: '2.5rem', lineHeight: '1.2', fontWeight: '700'}}>
+                Video Presentation
+            </h2>
+            <div className="w-full max-w-6xl mx-auto rounded-xl shadow-2xl overflow-hidden mb-12">
+                {/* Standard responsive YouTube embed container */}
+                <div className="relative" style={{ paddingBottom: '56.25%', height: 0 }}>
+                    <iframe
+                        className="absolute top-0 left-0 w-full h-full"
+                        src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}`}
+                        title="YouTube video player"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                    ></iframe>
+                </div>
             </div>
 
-            {/* 3. Button to External Prototype Page */}
+            {/* --- 2. Description of your Demo Video --- */}
+            <div className="max-w-6xl mx-auto bg-white p-8 md:p-12 rounded-xl shadow-lg mb-16 space-y-8">
+                <h2 className="text-3xl font-bold text-[#264653] border-b pb-4">
+                    Product Description & Technical Overview
+                </h2>
+
+                <div>
+                    <h3 className="text-2xl font-semibold text-[#2A9D8F] mb-3">
+                        What is being shown & How it relates to the problem/solution:
+                    </h3>
+                    <p className="text-lg text-[#264653]">
+                        Our video demonstrates the complete user flow of our AI-powered interior design tool. It directly addresses the <strong>"White Box"</strong> Trap and the <strong>"Cost of Guessing"</strong>problems faced by homeowners in Uzbekistan.
+                    </p>
+                    <ul className="list-disc list-inside ml-4 text-gray-700 mt-2 space-y-1">
+                        <li><strong>Upload:</strong> The user uploads a photo of their room (Step 1).</li>
+                        <li><strong>Configure:</strong> They select a <strong>Style</strong> (e.g., Modern, National) and set a <strong>Budget</strong> (Step 2).</li>
+                        <li><strong>Result:</strong> The AI instantly generates a photorealistic design complete with a <strong>shoppable list</strong> of furniture items available at local stores (Dafna, AIKO), all priced in UZS (Step 3). This eliminates the visualization gap and ensures the design is immediately actionable.</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 className="text-2xl font-semibold text-[#2A9D8F] mb-3">
+                        Stack, Technologies, and AI Solutions Used:
+                    </h3>
+                    <ul className="list-disc list-inside ml-4 text-gray-700 space-y-1">
+                        {techStack.map((item, index) => (
+                            <li key={index}><strong>{item.split(' (')[0]}:</strong> {item.split(' (')[1].replace(')', '')}</li>
+                        ))}
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 className="text-2xl font-semibold text-[#2A9D8F] mb-3">
+                        Roadmap Stage & Next Steps:
+                    </h3>
+                    <p className="text-lg text-[#264653]">
+                        The project is currently in the <strong>{roadmapStage}</strong>.
+                    </p>
+                    <p className="text-lg text-gray-700 mt-2">
+                        Our <strong>next steps</strong> involve {nextSteps}.
+                    </p>
+                </div>
+            </div>
+
+            {/* --- 3. Link to a Working Prototype (Implemented) --- */}
             <div className="text-center mt-16 mb-8">
+                <h2 className="text-3xl font-bold text-[#264653] mb-6">
+                    Link to a Working Prototype
+                </h2>
                 <a
-                    href="https://prot.eminence.uz/" // 👈 REPLACE THIS URL
-                    target="_blank" // Opens in a new tab
+                    href={PROTOTYPE_URL}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block px-8 py-4 bg-[#2A9D8F] text-white font-semibold rounded-full 
                                hover:bg-[#238276] transition-all duration-300 shadow-lg 
                                hover:shadow-xl hover:-translate-y-0.5 transform"
                 >
-                    Try Prototype
+                    Try Live Prototype Now
                 </a>
             </div>
 
-            <footer className="mt-12 text-center text-gray-500">
-                <p>
-                    Navigation is handled automatically by the Next.js file system.
-                </p>
-            </footer>
+
         </div>
     );
 }

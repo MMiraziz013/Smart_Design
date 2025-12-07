@@ -4,14 +4,18 @@ export function Roadmap() {
     const milestones = [
         {
             status: 'current',
-            title: 'MVP Phase - Hackathon Demo',
-            description: 'Core AI functionality with basic furniture catalog integration.',
-            date: 'November 2025',
+            // 🛠️ UPDATED TITLE to reflect current Prototype phase focus
+            title: 'Current Prototype & Image Output',
+            // 🛠️ UPDATED DESCRIPTION to describe current functionality and future 3D goal
+            description: 'Core AI functionality: Users can upload an image of a room and receive a redesigned 2D image output. This phase validates the AI selection logic and furniture catalog integration.',
+            date: 'November-December 2025',
         },
         {
             status: 'next',
-            title: 'Integration with 5 Major Retailers',
-            description: 'Live connection with Dafna, AIKO, and 3 more Tashkent furniture stores.',
+            // 🛠️ UPDATED TITLE to include the 3D model goal
+            title: 'MVP & Interactive 3D Model Integration',
+            // 🛠️ UPDATED DESCRIPTION to clarify the next technology leap
+            description: 'The shift to MVP will include the interactive, interactive 3D isometric room model output, filled with furniture items from major local retailers (Dafna, AIKO, and more).',
             date: 'December 2025',
         },
         {
@@ -31,6 +35,8 @@ export function Roadmap() {
                         From hackathon prototype to the go-to platform for home renovation in Uzbekistan.
                     </p>
                 </div>
+
+                {/*  */}
 
                 <div className="relative">
                     {/* Vertical timeline line */}
@@ -65,8 +71,8 @@ export function Roadmap() {
                                             <h3 className="text-[#264653]" style={{fontSize: '1.75rem', lineHeight: '1.3', fontWeight: '600'}}>{milestone.title}</h3>
                                             {milestone.status === 'current' && (
                                                 <span className="text-xs bg-[#2A9D8F] text-white px-3 py-1 rounded-full">
-                          Current
-                        </span>
+                                                    Current
+                                                </span>
                                             )}
                                         </div>
                                         <p className="text-[#6B7280] mb-3">{milestone.description}</p>
