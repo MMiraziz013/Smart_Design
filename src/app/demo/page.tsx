@@ -22,6 +22,24 @@ export default function DemoPage() {
     const roadmapStage = 'Prototype Phase - Demo Version';
     const nextSteps = 'Integration with 5 Major Retailers (Dafna, AIKO, etc.) and focusing on AR Mobile App & Bank Installments (Q1 2026).';
 
+    // 4. API Example (for the new section)
+    const apiRequest = `{
+  "roomType": "string",
+  "style": "string",
+  "images": ["base64string1", "base64string2", "..."]
+}`;
+
+    const apiResponse = `{
+  "image_id": "8d0f8d28-2e0b-4a51-8579-42e0a6b75b98",
+  "prompt_used": "Transform this living room into a modern styled interior.",
+  "original_images": [
+    "uploads/original/8d0f8d28-2e0b-4a51-8579-42e0a6b75b98_0.png",
+    "uploads/original/8d0f8d28-2e0b-4a51-8579-42e0a6b75b98_1.png"
+  ],
+  "edited_image_path": "uploads/edited/8d0f8d28-2e0b-4a51-8579-42e0a6b75b98_edited.png",
+  "edited_image_base64": "iVBORw0KGgoAAAANSUhEUgAA..."
+}`;
+
     return (
         <div className="min-h-screen p-8 md:p-16 bg-gray-50">
 
@@ -64,7 +82,7 @@ export default function DemoPage() {
                         What is being shown & How it relates to the problem/solution:
                     </h3>
                     <p className="text-lg text-[#264653]">
-                        Our video demonstrates the complete user flow of our AI-powered interior design tool. It directly addresses the <strong>"White Box"</strong> Trap and the <strong>"Cost of Guessing"</strong>problems faced by homeowners in Uzbekistan.
+                        Our video demonstrates the complete user flow of our AI-powered interior design tool. It directly addresses the <strong>"White Box"</strong> Trap and the <strong>"Cost of Guessing"</strong> problems faced by homeowners in Uzbekistan.
                     </p>
                     <ul className="list-disc list-inside ml-4 text-gray-700 mt-2 space-y-1">
                         <li><strong>Upload:</strong> The user uploads a photo of their room (Step 1).</li>
@@ -114,7 +132,39 @@ export default function DemoPage() {
                 </a>
             </div>
 
+            {/* --- NEW: API Access Example --- */}
+            <div className="max-w-6xl mx-auto mt-16 pb-12">
+                <h2 className="text-3xl font-bold text-[#264653] mb-6 text-center">
+                    API Access Example
+                </h2>
+                <p className="text-lg text-[#6B7280] mb-4 text-center">
+                    Below is an example of the JSON structure used to interact with our **Python FastAPI AI Engine** for image-to-image design transformation.
+                </p>
+                <div className="grid md:grid-cols-2 gap-8">
+                    {/* API Request */}
+                    <div className="bg-gray-800 p-6 rounded-xl shadow-lg">
+                        <h3 className="text-xl font-semibold text-[#2A9D8F] mb-3 border-b border-[#2A9D8F]/50 pb-2">REQUEST</h3>
+                        <pre className="text-sm text-gray-200 overflow-x-auto">
+                            <code>{apiRequest}</code>
+                        </pre>
+                    </div>
 
+                    {/* API Response */}
+                    <div className="bg-gray-800 p-6 rounded-xl shadow-lg">
+                        <h3 className="text-xl font-semibold text-[#2A9D8F] mb-3 border-b border-[#2A9D8F]/50 pb-2">RESPONSE</h3>
+                        <pre className="text-sm text-gray-200 overflow-x-auto">
+                            <code>{apiResponse}</code>
+                        </pre>
+                    </div>
+                </div>
+            </div>
+            {/* --- END NEW API SECTION --- */}
+
+            <footer className="mt-20 text-center text-gray-500">
+                <p>
+                    Navigation for this submission page is handled automatically by the Next.js file system at the `/demo` route.
+                </p>
+            </footer>
         </div>
     );
 }
