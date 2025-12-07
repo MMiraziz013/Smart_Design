@@ -14,7 +14,7 @@ import { Roadmap } from './Roadmap';
 import { Team } from './Team';
 import { Footer } from './Footer';
 // 👈 NEW: Import the Demo component
-import { Demo } from './demo';
+import Demo from './demo';
 
 // NOTE: The 'DemoPage' import is now redundant and should be removed if it's unused.
 // import { DemoPage } from './DemoPage'; 
