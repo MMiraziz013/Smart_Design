@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ChevronLeft, ChevronRight, Tag } from 'lucide-react';
 import { ImageWithFallback } from "@/components/figma/ImageWithFallback";
+import Link from 'next/link';
 
 interface ShoppingTag {
     id: string;
@@ -44,19 +45,22 @@ export function Hero({ onTryDemo }: HeroProps) {
                     {/* Left Side - Text */}
                     <div className="space-y-6">
                         <h1 className="text-[#264653]" style={{ fontSize: '3.5rem', fontWeight: '700' }}>
-                            Turn Your White 
+                            Turn Your White
                             Box into a Cozy Space in Seconds.
                         </h1>
                         <p className="text-xl text-[#6B7280]">
                             Uzbekistan's first AI designer that uses real furniture from local stores (Dafna, AIKO).
                             Visualize, budget, and buy.
                         </p>
-                        <button
-                            onClick={onTryDemo}
-                            className="px-8 py-4 bg-[#2A9D8F] text-white rounded-full hover:bg-[#238276] transition-all duration-300 shadow-[0px_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0px_8px_40px_rgba(0,0,0,0.12)] hover:-translate-y-1"
+                        {/* MODIFIED: Changed <button> to <Link> for internal navigation to /demo 
+                            The 'to' prop handles the client-side routing.
+                        */}
+                        <Link
+                            href="/demo" // <-- Use 'href' instead of 'to'
+                            className="inline-block px-8 py-4 bg-[#2A9D8F] text-white rounded-full hover:bg-[#238276] transition-all duration-300 shadow-[0px_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0px_8px_40px_rgba(0,0,0,0.12)] hover:-translate-y-1"
                         >
                             Try Demo Now
-                        </button>
+                        </Link>
                     </div>
 
                     {/* Right Side - Before/After Slider */}
