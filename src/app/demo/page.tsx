@@ -159,12 +159,6 @@ export default function DemoPage() {
                 </div>
             </div>
             {/* --- END NEW API SECTION --- */}
-
-            <footer className="mt-20 text-center text-gray-500">
-                <p>
-                    Navigation for this submission page is handled automatically by the Next.js file system at the `/demo` route.
-                </p>
-            </footer>
         </div>
     );
 }
