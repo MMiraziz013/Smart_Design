@@ -12,7 +12,7 @@ interface ShoppingTag {
 }
 
 interface HeroProps {
-    onTryDemo?: () => void;
+    onTryDemo?: () => void; // 👈 This function switches the state in App.tsx
 }
 
 export function Hero({ onTryDemo }: HeroProps) {
@@ -41,6 +41,19 @@ export function Hero({ onTryDemo }: HeroProps) {
     return (
         <section className="min-h-screen flex items-center justify-center px-4 py-20 bg-white">
             <div className="max-w-7xl w-full">
+
+                {/* 👈 NEW: Button to trigger the old state-based DemoPage view */}
+                <div className="flex justify-end mb-6">
+                    <button
+                        onClick={onTryDemo} // 👈 Calls the state-switching function passed from App.tsx
+                        className="flex items-center gap-2 px-4 py-2 text-sm text-[#264653] 
+                                   border border-[#264653]/10 rounded-full hover:bg-[#F8F9FA] transition-colors"
+                    >
+                        Go to Interactive Demo
+                    </button>
+                </div>
+                {/* END NEW BUTTON */}
+
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     {/* Left Side - Text */}
                     <div className="space-y-6">
@@ -52,18 +65,17 @@ export function Hero({ onTryDemo }: HeroProps) {
                             Uzbekistan's first AI designer that uses real furniture from local stores (Dafna, AIKO).
                             Visualize, budget, and buy.
                         </p>
-                        {/* MODIFIED: Changed <button> to <Link> for internal navigation to /demo 
-                            The 'to' prop handles the client-side routing.
-                        */}
+
+                        {/* This button still uses Next.js Link for the /demo URL route */}
                         <Link
-                            href="/demo" // <-- Use 'href' instead of 'to'
+                            href="/demo"
                             className="inline-block px-8 py-4 bg-[#2A9D8F] text-white rounded-full hover:bg-[#238276] transition-all duration-300 shadow-[0px_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0px_8px_40px_rgba(0,0,0,0.12)] hover:-translate-y-1"
                         >
                             Try Demo Now
                         </Link>
                     </div>
 
-                    {/* Right Side - Before/After Slider */}
+                    {/* Right Side - Before/After Slider (Intact) */}
                     <div className="relative">
                         <div
                             className="relative w-full aspect-[4/3] rounded-[12px] overflow-hidden shadow-[0px_6px_30px_rgba(0,0,0,0.08)] cursor-ew-resize"
